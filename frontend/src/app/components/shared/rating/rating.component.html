@@ -1,0 +1,12 @@
+<div class="rating">
+  <span *ngFor="let s of stars(); let i = index"
+        (click)="setRating(i + 1)"
+        role="button"
+        [attr.aria-label]="'Rate ' + (i + 1)"
+        [style.color]="i + 1 <= value ? checkedcolor : uncheckedcolor"
+        [style.fontSize]="size"
+        [class.readonly]="readonly">
+    ★
+  </span>
+  <span class="sr-only">Rating: {{value}} / {{totalstars}}</span>
+</div>

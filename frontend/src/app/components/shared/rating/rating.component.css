@@ -1,0 +1,20 @@
+.rating {
+  display: inline-block;
+  position: relative;
+}
+.rating span {
+  cursor: pointer;
+  user-select: none;
+  padding: 0 2px;
+}
+.rating span.readonly {
+  cursor: default;
+}
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
