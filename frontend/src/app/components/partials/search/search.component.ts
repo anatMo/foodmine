@@ -17,9 +17,8 @@ export class SearchComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
-
+  
   search(term:string) {
     if(term)
       this.router.navigateByUrl('/search/' + term);
