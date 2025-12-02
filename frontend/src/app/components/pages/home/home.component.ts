@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FoodService } from 'src/app/services/food.service';
 import { Food } from 'src/app/shared/models/Food';
+import { Tag } from 'src/app/shared/models/Tag';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,8 @@ export class HomeComponent implements OnInit {
     activatedRout.params.subscribe((params) => {
       if(params['searchTerm'])
         this.foods = foodService.getAllFoodsBySearchTerm(params['searchTerm']);
+      else if(params['tag'])
+        this.foods = foodService.getAllFoodsByTag(params['tag']);
       else
         this.foods = foodService.getAll();
     });
