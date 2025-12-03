@@ -1,0 +1,24 @@
+{
+  "Angular Component with OnInit": {
+    "prefix": "ng-component",
+    "body": [
+      "import { Component, OnInit } from '@angular/core';",
+      "",
+      "@Component({",
+      "  selector: 'app-${1:component-name}',",
+      "  templateUrl: './${1:component-name}.component.html',",
+      "  styleUrls: ['./${1:component-name}.component.css']",
+      "})",
+      "export class ${2:ComponentName}Component implements OnInit {",
+      "",
+      "  constructor() { }",
+      "",
+      "  ngOnInit(): void {",
+      "    $0",
+      "  }",
+      "",
+      "}"
+    ],
+    "description": "Angular component with OnInit and constructor"
+  }
+}
