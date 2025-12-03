@@ -5,6 +5,7 @@ import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
 import { USER_LOGIN_URL } from '../shared/constants/urls';
 import { Toast, ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 const USER_KEY = 'User';
 
@@ -15,7 +16,7 @@ export class UserService {
   private userSubject = new BehaviorSubject<User>(this.getUserFromLocalStorage());
   public userObservable: Observable<User>;
 
-  constructor(private http: HttpClient, private toastrService: ToastrService) {
+  constructor(private http: HttpClient, private toastrService: ToastrService, private router: Router) {
     this.userObservable = this.userSubject.asObservable();
    }
 
@@ -37,7 +38,7 @@ export class UserService {
    logout(){
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
-    window.location.reload();
+    this.router.navigateByUrl('/login');
    }
 
    
